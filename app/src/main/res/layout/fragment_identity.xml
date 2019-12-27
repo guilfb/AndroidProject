@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.tp2.viewmodel.IdentityViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- PARTIE CONCERNANT L'IDENTITE -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="185dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/tv_title_box_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/titleBox1SignUp"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ti_lastname"
+                            android:layout_weight="50"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="@={viewModel.user.lastname}"
+                            android:inputType="text" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ti_firstname"
+                            android:layout_weight="50"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="@={viewModel.user.firstname}"
+                            android:inputType="text"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+                        <RadioGroup
+                            android:id="@+id/rg_gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="50"
+                                    android:layout_height="25dp">
+                                    <ImageView
+                                        android:id="@+id/iv_image"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:src="@mipmap/ic_woman"
+                                        android:layout_gravity="center" />
+                                    <RadioButton
+                                        android:id="@+id/rb_woman"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:checked="@{viewModel.user.gender.equals(@string/woman)}"
+                                        android:onClick="@{() -> viewModel.onGender(@string/woman)}"
+                                        android:text="@string/woman"
+                                        android:gravity="center_vertical"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="50"
+                                    android:layout_height="25dp">
+                                    <ImageView
+                                        android:id="@+id/iv_image2"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:src="@mipmap/ic_man"
+                                        android:layout_gravity="center" />
+                                    <RadioButton
+                                        android:id="@+id/rb_man"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:checked="@{viewModel.user.gender.equals(@string/man)}"
+                                        android:onClick="@{() -> viewModel.onGender(@string/man)}"
+                                        android:text="@string/man"
+                                        android:gravity="center_vertical"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ti_birthday"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="12dp"
+                            android:inputType="date"
+                            android:layout_gravity=""
+                            app:userDateOfBirth="@{viewModel.user}"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- PARTIE CONCERNANT LA CONNEXION -->
+            <!-- Ajouter une partie avec confirmation de mot de passe -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/tv_title_box_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/titleBox2SignUp"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"/>
+
+                    <TextView
+                        android:id="@+id/tv_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/emailLogin"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ti_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.user.email}"
+                        android:inputType="text"/>
+
+                    <TextView
+                        android:id="@+id/tv_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/pwdLogin"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ti_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.password}"
+                        android:inputType="textPassword" />
+
+                    <TextView
+                        android:id="@+id/tv_pwd_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/pwdLoginConfirm"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ti_password_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.passwordConfirm}"
+                        android:inputType="textPassword" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- PARTIE CONCERNANT L'ADRESSE -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/tv_title_box_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/titleBox3SignUp"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"/>
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/adresse"
+                        android:textSize="15sp"
+                        android:gravity="center_vertical"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ti_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@={viewModel.user.address}"
+                        android:inputType="text"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_city"
+                            android:layout_weight="50"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/ville"
+                            android:textSize="15sp"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:id="@+id/tv_country"
+                            android:layout_weight="50"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/pays"
+                            android:textSize="15sp"
+                            android:gravity="center_vertical"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ti_city"
+                            android:layout_weight="50"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@={viewModel.user.city}"
+                            android:inputType="text"/>
+
+                        <Spinner
+                            android:id="@+id/ti_country_spinner"
+                            android:layout_weight="50"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bt_validate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="end"
+                    android:onClick="@{() -> viewModel.onValidate()}"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</layout>

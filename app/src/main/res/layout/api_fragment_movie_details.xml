@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.tp2.viewmodel.ApiMovieDetailsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:movieImage="@{viewModel.test._backdrop_path}" />
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.test._title}"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/tv_popularity"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                app:moviePopularity="@{viewModel.test}"/>
+            <TextView
+                android:id="@+id/vote_average"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                app:movieAverage="@{viewModel.test}"/>
+            <TextView
+                android:id="@+id/release_date_test"
+                android:layout_marginTop="12dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="20sp"
+                app:movieReleaseDate="@{viewModel.test}"/>
+            <TextView
+                android:id="@+id/tv_overview"
+                android:layout_marginTop="12dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:justificationMode="inter_word"
+                android:text="@{viewModel.test._overview}"
+                android:textSize="20sp"
+                tools:targetApi="o" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

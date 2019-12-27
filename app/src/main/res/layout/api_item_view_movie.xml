@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="movie"
+            type="com.example.tp2.apiService.Movie" />
+        <variable
+            name="clickListener"
+            type="com.example.tp2.adapter.MovieListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="6dp"
+        android:onClick="@{() -> clickListener.onClick(movie)}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_margin="6dp"
+                app:movieImage="@{movie._poster_path}" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="50dp" >
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="17sp"
+                            android:text="@{movie._title}" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end">
+                        <ProgressBar
+                            style="?android:progressBarStyleHorizontal"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:progressDrawable="@drawable/circle_background"
+                            android:background="@drawable/circle"
+                            android:indeterminate="false"
+                            app:movieAverageProgressBar="@{movie}"
+                            android:layoutDirection="rtl" />
+
+                        <TextView
+                            android:id="@+id/textViewPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            app:movieAverage="@{movie}" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/overview"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:maxHeight="50dp"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:text="@{movie._overview}"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:gravity="center_vertical"
+                    android:justificationMode="inter_word"
+                    android:layout_marginEnd="10dp"
+                    tools:targetApi="o" />
+
+                <TextView
+                    android:id="@+id/release_date_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="17sp"
+                    android:gravity="bottom"
+                    android:layout_marginEnd="10dp"
+                    android:textAlignment="viewEnd"
+                    app:movieReleaseDate="@{movie}"
+                    tools:ignore="RtlCompat" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
+
+<!--
+
+app:resizeText="@{movie._overview}" />
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{movie._id}"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{movie._title}"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/tv_popularity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:moviePopularity="@{movie}" />
+-->
+
+<!--
+    <TextView
+        android:id="@+id/tv_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{movie._overview}"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/tv_guideline"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/release_date_test" />
+-->

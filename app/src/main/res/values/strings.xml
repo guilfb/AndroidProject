@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">TP2</string>
+    <string name="title">Bienvenue !</string>
+
+    <string name="firstname">Guillaume</string>
+    <string name="lastname">Lefebvre</string>
+    <string name="email">guillaumelefebvre69@gmail.com</string>
+    <string name="password">********</string>
+    <string name="address">12 Faubourg Saint Honoré</string>
+    <string name="city">Paris</string>
+    <string name="country">France</string>
+    <string name="birthdayDate">09/02/1998</string>
+    <string name="validate">Valider</string>
+
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="delete">Delete</string>
+    <string name="signup">Sign Up</string>
+    <string name="search">Search</string>
+    <string name="stayConnected">Rester connecté ?</string>
+
+    <string name="emailLogin">Email</string>
+    <string name="pwdLogin">Mot de passe</string>
+    <string name="pwdLoginConfirm">Confirmation</string>
+
+    <string name="titleBox1SignUp">Identité</string>
+    <string name="titleBox2SignUp">Connexion</string>
+    <string name="titleBox3SignUp">Coordonnées postale</string>
+
+    <string name="adresse">Adresse</string>
+    <string name="ville">Ville</string>
+    <string name="pays">Pays</string>
+
+    <string name="woman">Femme</string>
+    <string name="man">Homme</string>
+
+    <string name="background">SplashScreen</string>
+    <string name="searchBar">Type your search…</string>
+
+</resources>

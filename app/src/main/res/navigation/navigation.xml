@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/identityFragment"
+        android:name="com.example.tp2.IdentityFragment"
+        android:label="IdentityFragment">
+        <action
+            android:id="@+id/action_identityFragment_to_apiListMovieFragment"
+            app:destination="@+id/apiListMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.tp2.ListFragment"
+        android:label="ListFragment"/>
+    <fragment
+        android:id="@+id/apiListFragment"
+        android:name="com.example.tp2.ApiListFragment"
+        android:label="ApiListFragment" />
+    <fragment
+        android:id="@+id/apiListMovieFragment"
+        android:name="com.example.tp2.ApiListMovieFragment"
+        android:label="ApiListMovieFragment" >
+        <action
+            android:id="@+id/action_apiListMovieFragment_to_apiMovieDetailsFragment"
+            app:destination="@id/apiMovieDetailsFragment" />
+        <action
+            android:id="@+id/action_apiListMovieFragment_to_identityFragment"
+            app:destination="@id/identityFragment" />
+        <action
+            android:id="@+id/action_apiListMovieFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.tp2.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_identityFragment"
+            app:destination="@id/identityFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_apiListMovieFragment"
+            app:destination="@id/apiListMovieFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/apiMovieDetailsFragment"
+        android:name="com.example.tp2.ApiMovieDetailsFragment"
+        android:label="ApiMovieDetailsFragment">
+        <argument
+            android:name="movie"
+            app:argType="com.example.tp2.apiService.Movie" />
+    </fragment>
+</navigation>
